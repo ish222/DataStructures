@@ -7,8 +7,8 @@ is reached. This means that linked lists are not as efficient as Python lists in
 access, with a time complexity equation of O(n).
 
 However, the major benefit of linked lists is that only one instruction is required to add
-or remove an element, O(1), unlike for regular lists in Python where the whole list has to
-be reorganised in order in memory, O(n).
+or remove an element, O(1), unlike for random access data structures like arrays, where the 
+whole array has to be reorganised in order in memory, O(n).
 
 In this linked lists implementation, the relationship between subsequent elements is only
 one way, from the previous to the next element, making it a singly linked list. For linked
