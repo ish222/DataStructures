@@ -75,13 +75,24 @@ class Stack:
         self.size = 0
 
     def push(self, data):
+        """
+        Pushes a new element to the top of the stack
+        :param data: the new element
+        :return: None
+        """
         self.head = self.Node(data, self.head)
         self.size += 1
 
     def isEmpty(self):
+        """
+        Checks if the stack is empty
+        """
         return self.size == 0
 
     def pop(self):
+        """
+        Returns and removes the top element of the stack
+        """
         if self.isEmpty():
             raise Exception("The stack is empty, no elements to pop.")
         result = self.head.data
@@ -89,10 +100,47 @@ class Stack:
         self.size -= 1
         return result
 
-    def top(self):
+    def peek(self):
+        """
+        Returns the top element of the stack without removal
+        """
         if self.isEmpty():
             raise Exception("The stack is empty, no elements to pop.")
         return self.head.data
+
+    def display(self):
+        """
+        Returns a list containing all the elements of the stack
+        """
+        elems = []
+        cur_node = self.head
+        while cur_node.next is not None:
+            elems.append(cur_node.data)
+            cur_node = cur_node.next
+        elems.append(cur_node.data)
+        return elems
+
+    def contains(self, data):
+        """
+        Checks if the stack contains a specified element
+        :param data: the element to search for
+        :return: a boolean
+        """
+        cur = self.head
+        while cur.next is not None:
+            if cur.data == data:
+                return True
+            else:
+                cur = cur.next
+        if cur.data == data:
+            return True
+        return False
+    
+    def length(self):
+        """
+        returns the size of the stack
+        """
+        return self.size
 
 
 stack = Stack()
@@ -102,4 +150,7 @@ stack.push(30)
 stack.push(40)
 stack.push(50)
 print(stack.pop())
-print(stack.top())
+print(stack.peek())
+print(stack.display())
+print(stack.contains(10))
+print(stack.length())
